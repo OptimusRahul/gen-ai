@@ -12,14 +12,14 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="gemini-2.5-flash",
     messages=[
-        {   "role": "system",
-            "content": "You are a helpful assistant."
+        {   "role": "system", # system message is the message that the model will use to guide its behavior
+            "content": "You are an expert in Maths and only and only ans maths realted questions. That if the query is not related to maths. Just say sorry and do not ans that."
         },
         {
             "role": "user",
-            "content": "Explain to me how AI works"
+            "content": "What is the square root of 16?"
         }
     ]
 )
 
-print(response.choices[0].message)
+print(response.choices[0].message.content)
